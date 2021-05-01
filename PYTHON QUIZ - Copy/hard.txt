@@ -1,0 +1,39 @@
+Q41. 
+hard
+The duplicates from the list get removed, due to the python dictionary,which doesn't allow them
+https://www.w3schools.com/python/python_howto_remove_duplicates.asp
+What will the code return?
+<pre>
+mylist = ['a','b','a','c','c']
+mylist = list(dict.fromkeys(mylist))
+print(mylist)
+</pre>
+
+1. ['a','b','c'] ***
+2. ['a','b','a','c','c']
+3. [a,b,c]
+4. ['a','b','c','c']
+
+Q42. 
+hard
+In Python, AND operator has higher precedence than OR operator. 
+So, it is evaluated first. i.e, (b and c) evaluates to false.
+Now OR operator is evaluated. Here, (True or False) evaluates to True. 
+So the if condition becomes True and GEEKSFORGEEKS is printed as output.
+https://www.programiz.com/python-programming/precedence-associativity
+What will the code return?
+<pre>
+a = True
+b = False
+c = False
+  
+if a or b and c:
+    print ("GEEKSFORGEEKS")
+else:
+    print ("geeksforgeeks")
+</pre>
+
+1. geeksforgeeks
+2. GEEKSFORGEEKS ***
+3. error
+4. GEEKSFORGEEKSgeeksforgeeks

@@ -1,0 +1,392 @@
+body{
+    background-image: url(../images/mixed-bg.jpg);
+    background-color: rgba(0, 0, 0, 0.4);
+    background-blend-mode: multiply;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: bottom 150px;
+}
+
+nav{
+    background-color: #021a2e;
+}
+
+.box{
+    margin-left: 90px;
+    width: 25%;
+    height: 560px;
+    position: relative;
+    top: 100px;
+    text-decoration: none;
+    padding: 5px;
+    padding-top: 10px;
+    border:white 1px solid;
+    border-radius: 10%;
+    box-shadow: 1px 1px 2px white, 0 0 25px rgb(192, 197, 240), 0 0 5px rgb(90, 142, 202);
+}
+
+.my-form{
+    margin: 55px;
+    width: 75%;
+}
+
+h1{
+    padding-top: 40px;
+    padding-left: 90px;
+    font-size: 150px;
+    font-family: sans-serif;
+    color: rgb(181, 212, 1);
+    text-shadow: 1px 1px 2px white, 0 0 25px rgb(192, 197, 240), 0 0 5px rgb(90, 142, 202);
+    position: relative;
+}
+
+h3{
+    display: inline;
+    padding-top: 30px;
+    padding-left: 60px;
+    font-size: 50px;
+    font-family: sans-serif;
+    color: rgb(181, 212, 1);
+    text-shadow: 1px 1px 2px white, 0 0 25px rgb(192, 197, 240), 0 0 5px rgb(90, 142, 202);
+    position: relative;
+}
+
+h4{
+    padding-bottom: 10px;
+    font-size: 32px;
+    font-family: sans-serif;
+    color: rgb(181, 212, 1);
+    text-shadow: 1px 1px 2px white, 0 0 25px rgb(192, 197, 240), 0 0 5px rgb(134, 160, 190);
+    position: relative;
+}
+
+h1 span {
+    display: block;
+  }
+
+#span1{
+    position: relative;
+    animation: heading1;
+    animation-duration: 3s;
+    animation-fill-mode: forwards;
+}
+
+#span2{
+    position: relative;
+    animation: heading2;
+    animation-duration: 3s;
+    animation-fill-mode: forwards;
+}
+
+@keyframes heading1{
+    0% {top: -500px;}
+    100% {top: 30px;}
+}
+
+@keyframes heading2{
+    0% {bottom: -1000px;}
+    100% {bottom: -20px;}
+}
+
+
+.player {
+    margin-left: 5px;
+    display: inline-block;
+    background: none;
+    width: 100px;
+    height: 100px;
+    border: solid 5px rgb(181, 212, 1);
+    border-radius: 100%;
+    position: relative; 
+    box-shadow: 1px 1px 3px white, 0 0 25px rgb(7, 18, 112), 0 0 5px rgb(3, 3, 85);
+    opacity: 0;
+    animation-name: btn;
+    animation-duration: 4s;
+    animation-delay: 3s;
+    animation-fill-mode: forwards;
+    transition-property: transform;
+    transition-duration: 1s;
+  }
+  
+.player span {
+    width: 0;
+    height: 0;
+    border-top: 30px solid transparent;
+    border-left: 50px solid rgb(181, 212, 1);
+    border-bottom: 30px solid transparent;
+    position:absolute;
+    top:20%;
+    left:30%;    
+    opacity: 0;
+    animation-name: btn;
+    animation-duration: 4s;
+    animation-delay: 3s;
+    animation-fill-mode: forwards;
+    transition-property: transform;
+    transition-duration: 1s;
+  }
+
+.player:hover span{
+    transform: rotateX(180deg);
+}
+
+.player:hover{
+    transform: rotateX(180deg);
+    box-shadow: 1px 1px 3px white, 0 0 25px rgb(192, 197, 240), 0 0 5px rgb(90, 142, 202);;
+}
+  
+@keyframes btn{
+    0% {opacity: 0;}
+    100% {opacity: 1;}
+}
+
+.btn{
+    display: inline-block;
+    color: white;
+    text-decoration: none;
+    padding: 20px;
+    border:white 1px solid;
+    border-radius: 30% 30% 30% 30%;
+    margin-top: 20px;
+    margin-left: 135px;
+}
+
+
+.btn:hover{
+    color: rgb(181, 212, 1);
+    text-shadow: 1px 1px 2px white, 0 0 25px rgb(192, 197, 240), 0 0 5px rgb(134, 160, 190);
+    box-shadow: 1px 1px 2px white, 0 0 25px rgb(192, 197, 240), 0 0 5px rgb(90, 142, 202);
+}
+
+
+#easy{
+    color: chartreuse;
+    font-size: 20px;
+}
+
+#medium{
+    color: rgb(201, 204, 6);
+    font-size: 20px;
+}
+
+#hard{
+    color: rgb(224, 15, 15);
+    font-size: 20px;
+}
+
+.container {
+    display: block;
+    position: relative;
+    padding-left: 35px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    font-size: 22px;
+}
+  
+  /* Hide the browser's default radio button */
+.container input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+}
+  
+  /* Create a custom radio button */
+.checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 25px;
+    width: 25px;
+    background-color: #eee;
+    border-radius: 50%;
+}
+  
+  /* On mouse-over, add a grey background color */
+.container:hover input ~ .checkmark {
+    background-color: #ccc;
+}
+  
+  /* When the radio button is checked, add a blue background */
+.container input:checked ~ .checkmark {
+    background-color: #0063d4;
+}
+  
+  /* Create the indicator (the dot/circle - hidden when not checked) */
+.checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+  
+  /* Show the indicator (dot/circle) when checked */
+.container input:checked ~ .checkmark:after {
+    display: block;
+}
+  
+  /* Style the indicator (dot/circle) */
+.container .checkmark:after {
+    top: 9px;
+    left: 9px;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: white;
+}
+
+ul{
+    padding-left: 90px;
+    color: white;
+}
+
+table, th, td {
+    color: white;
+    margin-left: 80px;
+    margin-top: 30px;
+    margin-bottom: 15px;
+    padding: 10px;
+    border: 1px solid rgb(255, 255, 255);
+    box-shadow: 0px -2px 2px white, 0 0 25px rgb(192, 197, 240), 0 0 5px rgb(90, 142, 202);
+}
+
+table{
+    width: 700px;
+}
+
+.arrow{
+    position: fixed;
+    top: 80%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+.arrow span{
+    display: block;
+    width: 40px;
+    height: 40px;
+    border-bottom: 5px solid white;
+    border-right: 5px solid white;
+    filter: drop-shadow(1px 1px 1px white);
+    transform: rotate(45deg);
+    margin: -10px;
+    animation: animate 2s infinite;
+}
+.arrow span:nth-child(2){
+    animation-delay: -0.2s;
+}
+.arrow span:nth-child(3){
+    animation-delay: -0.4s;
+}
+@keyframes animate {
+    0%{
+        opacity: 0;
+        transform: rotate(45deg) translate(-20px,-20px);
+    }
+    50%{
+        opacity: 1;
+    }
+    100%{
+        opacity: 0;
+        transform: rotate(45deg) translate(20px,20px);
+    }
+}
+
+.arrow:hover{
+    cursor: pointer;
+    filter: drop-shadow(1px 1px 1px rgb(66, 249, 255));
+}
+
+#top_x_div1{
+    width: 700px;
+    margin-left: 80px;
+    margin-top: 70px;
+    margin-bottom: 50px;
+    border: 1px solid rgb(255, 255, 255);
+    box-shadow: 1px 1px 2px white, 0 0 25px rgb(230, 232, 250), 0 0 5px rgb(159, 195, 236);
+}
+
+#top_x_div2{
+    width: 700px;
+    margin-left: 80px;
+    margin-top: 70px;
+    margin-bottom: 50px;
+    border: 1px solid rgb(255, 255, 255);
+    box-shadow: 1px 1px 2px white, 0 0 25px rgb(230, 232, 250), 0 0 5px rgb(159, 195, 236);
+}
+
+#top_x_div3{
+    width: 700px;
+    margin-left: 80px;
+    margin-top: 70px;
+    margin-bottom: 50px;
+    border: 1px solid rgb(255, 255, 255);
+    box-shadow: 1px 1px 2px white, 0 0 25px rgb(230, 232, 250), 0 0 5px rgb(159, 195, 236);
+}
+
+.questions{
+    margin-top: 50px;
+    padding-top: 15px;
+    color: white;
+    padding-left: 90px;
+}
+.answer{
+    padding-left: 90px;
+}
+
+h5{
+    color: white;
+    display: inline-block;
+    padding-left: 10px;
+}
+
+.prev_games{
+    padding-left: 180px;
+    padding-top: 20px;
+}
+
+table.tableSection {
+    display: table;
+}
+table.tableSection thead, table.tableSection tbody {
+    float: left;
+    width: 100%;
+}
+table.tableSection tbody {
+    overflow: auto;
+    max-height: 250px;
+}
+table.tableSection tr {
+    width: 100%;
+    display: table;
+    text-align: center;
+}
+table.tableSection th, table.tableSection td {
+    width: 17%;
+}
+
+#email_th{
+    width: 25%;
+}
+
+#score_th{
+    width: 10%;
+}
+
+#time_th{
+    width: 20%;
+}
+
+.animated-chart g:nth-of-type(3) {
+    transition: 1s;
+    transform: scaleY(1);
+    transform-origin: 50px 300px;
+}
+
+.animated-chart.animated-chart-start g:nth-of-type(3) {
+    transform: scaleY(0);
+}
+
+.carousel {
+    bottom:0;
+    position:fixed;
+    width: 860px;
+}

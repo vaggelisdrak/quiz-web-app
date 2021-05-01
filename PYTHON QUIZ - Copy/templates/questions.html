@@ -1,0 +1,36 @@
+{% extends 'base.html'%}
+{%block title%} Questions {%endblock%}
+{%block content%}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <style>
+        body:before {
+            content: "";
+            position: fixed;
+            left: 0;
+            right: 0;
+            z-index: -1;
+
+            display: block;
+            background-image: url(../static/images/mixed-bg.jpg);
+            background-size:cover;
+            background-color: rgba(0, 0, 0, 0.4);
+            background-blend-mode: multiply;
+            width: 100%;
+            height: 100%;
+
+            -webkit-filter: blur(5px);
+            -moz-filter: blur(5px);
+            -o-filter: blur(5px);
+            -ms-filter: blur(5px);
+            filter: blur(5px);
+            }
+    </style>
+    <h3>Questions!!!</h3>
+    {% for i,l,q,a1,a2,a3,a4,c,ex,re in questions%}
+        <h4 class="questions"><pre>{{loop.index}}) {{q}}</pre></h4>
+        <li class="answer"><input type="radio" name="answer"><h5>{{ a1 }}</h5></li>
+        <li class="answer"><input type="radio" name="answer"><h5>{{ a2 }}</h5></li>
+        <li class="answer"><input type="radio" name="answer"><h5>{{ a3 }}</h5></li>
+        <li class="answer"><input type="radio" name="answer"><h5>{{ a4 }}</h5></li>
+    {% endfor %}
+{%endblock%}
