@@ -1,3 +1,6 @@
-mylist = ['a', 'b', 'a', 'c', 'c']
-mylist = list(dict.fromkeys(mylist))
-print(mylist)
+x = 10
+def foo():
+    x += 1
+    print(x)
+
+foo()
