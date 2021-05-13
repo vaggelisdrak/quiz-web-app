@@ -1,0 +1,311 @@
+Q21.
+medium
+Python uses Lexicographical ordering for strings.This means that it uses the Unicode point number to order characters.
+So, 'a' > 'b' is False ,but 'p' > 'b' is True and as a result only the first element of the list is printed.
+https://docs.python.org/3/tutorial/datastructures.html#comparing-sequences-and-other-types
+What will the code return?
+<pre>
+for i in ['apples', 'pears', 'oranges']:
+	if i[0] > 'b': break
+	print(i, end=' ')
+else:
+	print('fruits')
+</pre>
+
+1.	apples ***
+2.	fruits
+3.	pears oranges
+4.	error
+
+Q22.
+medium
+The string 'hello world' turns to ['hello','world']
+https://www.w3schools.com/python/ref_string_split.asp
+What will the code return?
+<pre>
+for item in sorted('hello world'.split()):
+	print(item[0], end=' ')
+</pre>
+1.	w h
+2.	[w h]
+3.	[h] [w]
+4.	h w ***
+
+Q23.
+medium
+The sorted list is [2, 3, 7, 8, 12].If the (i element of this list) mod 3 = 0 then the loop continues, 
+elif the (i element of this list) mod 8 = 0 then the loop breaks.Therefore, when i=8 the loop breaks
+and the result is 2 7.
+https://www.w3schools.com/python/python_operators.asp
+What will the code return?
+<pre>
+for i in sorted([12, 2, 3, 8, 7]):
+	if i%3 == 0 : continue
+	elif i%8 == 0 : break
+	else: print(i, end=' ')
+else:
+	print('end of list')
+</pre>
+
+1.	2 3 7 8 12 end of list
+2.	2 7 ***
+3.	2 3 7
+4.	2 3 7 end of list
+
+Q24.
+medium
+The string printed based on the lambda key function is 'ehllo' and since the loop doesn't break
+'world' is printed next to it.
+https://www.w3schools.com/python/ref_dictionary_get.asp
+https://stackoverflow.com/questions/8966538/syntax-behind-sortedkey-lambda
+What will the code return?
+<pre> 
+d = {1:'h', 2:'e', 3:'l', 4:'l', 5:'o'}
+for i in sorted(d, key =d.get):
+	print(d[i],end='')
+else: print('world')
+</pre>
+
+1.	hello world
+2.	helloworld
+3.	ehlloworld ***
+4.	ehllo
+
+Q25.
+medium
+lambdas are concise functions and thus, result = 6 * 8
+https://www.w3schools.com/python/python_lambda.asp
+What will the code return?
+<pre>
+y = 8
+z = lambda x : x * y
+print (z(6))
+</pre>
+
+1.	64
+2.	14
+3.	48 ***
+4.	error
+
+Q26.
+medium
+The number 4 inside the range method is a step.
+So, since there is not a loop break, next to 8 12 16 the string 'end' is printed
+https://pynative.com/python-range-function/
+What will the code return?
+<pre>
+for i in range(3, 12, 4):
+	print(i+5, end=' ')
+else:
+	print('end')
+</pre>
+
+1.	3 7 11 end
+2.	3 7 11
+3.	8 12 16
+4.	8 12 16 end ***
+
+Q27. 
+medium
+[::] depicts extended slicing in Python and [::-1] returns the reverse of the string.
+https://www.jquery-az.com/ways-reverse-string-python-reversed-extended-slice-objects/
+What will the code return?
+<pre>
+print("Hello World"[::-1])
+</pre>
+
+1.  dlroW olleH ***
+2.	Hello Worl
+3.	d
+4.	error
+
+Q28. 
+medium
+The number 32 is the 3rd and the 5th element of the list, but the index() method only returns the first occurrence of the value.
+https://www.w3schools.com/python/ref_list_index.asp
+What will the code return?
+<pre>
+fruits = [4, 55, 64, 32, 16, 32]
+x = fruits.index(32)
+print(x)
+</pre>
+
+1. 	3,5
+2. 	3 ***
+3.	3 5
+4.	error
+
+Q29.
+medium
+https://www.w3schools.com/python/ref_func_input.asp
+What will the code do?
+<pre>
+poem = ''
+while True:
+	line = input()
+	if line == '' : break
+	else: poem += line+'\n'
+</pre>
+
+1.  the program creates a poem with blank lines
+2.  the program adds the text (that the user gives) to the poem in consecutive lines until he presses enter ***
+3.  the program waits until the user enters a blank character and then stops
+4.  the program stops when you change line
+
+Q30.
+medium
+That is a list comprehension
+https://www.pythonforbeginners.com/basics/list-comprehensions-in-python
+What will the code return?
+<pre>
+print([x for x in range(5) if x%2 == 0])
+</pre>
+
+1.	[2, 4, 6]
+2.	[0, 2, 4] ***
+3.	[0, 1, 2]  
+4.	[0, 1, 2, 3, 4]
+
+Q31.
+medium
+'r' stands for reading a file
+https://www.programiz.com/python-programming/file-operation
+https://stackoverflow.com/questions/13248020/whats-the-difference-between-r-and-a-when-open-file-in-python
+What will this line of code do?
+open(f, 'r+', encoding='utf-8')
+
+1.	opens the file named 'f' for reading and appending data
+2.	opens the file named 'f' for reading
+3.	opens the file named 'f' for writing data
+4.	opens the file named 'f' for reading and writing data***
+
+Q32.
+medium
+https://www.geeksforgeeks.org/python-os-getcwd-method/
+What will this line of code do?
+<pre>
+os.getcwd()
+</pre>
+
+1.	returns the folder in which python is installed
+2.  returns the version of our operating system
+3.  returns our current python version
+4.  returns the folder in which our program is located ***
+
+Q33.
+medium
+https://www.geeksforgeeks.org/python-os-listdir-method/
+What will this line of code do?
+<pre>
+os.listdir(d)
+</pre>
+
+1.	gives us the name of the directory in the specified path
+2.  gives us the list of all files and directories in the specified path. ***
+3.  gives us a list of all the folder names in our computer
+4.  gives us the name of the python file we are using
+
+Q34.
+medium
+https://www.geeksforgeeks.org/os-walk-python/
+What is the value of c?
+<pre>
+c = 0
+for x in os.walk(os.getcwd()) : c += len(x[2])
+</pre>
+
+1.  The number of files in our current working folder
+2.  The number of subfolders of our current working folder
+3.  The number of folders and subfolders of our current working folder *** 
+4.  The number of files on our computer
+
+Q35.
+medium
+Python ord() and chr() functions are exactly opposite of each other, so 
+the result remains 'a'
+https://www.journaldev.com/22767/python-ord-chr
+What will the code return?
+<pre>
+print(chr(ord('a')))
+</pre>
+
+1.  a ***
+2.  97
+3.  TypeError
+4.  940
+
+Q36.
+medium
+len(s) = 6, but there isn't s[6] in the list
+https://www.w3schools.com/python/ref_func_len.asp
+What will the code return?
+<pre>
+s = '123456'
+print(s[len(s)])
+</pre>
+
+1. 	6
+2. 	123456
+3. 	5
+4.	IndexError ***
+
+Q37.
+medium
+Two 4's are added to the list
+https://www.programiz.com/python-programming/methods/list/extend
+What will the code return?
+<pre>
+li = [1,2]
+li.extend(2*[4])
+print(li)
+</pre>
+
+1. [1,2,4,4] *** 
+2. [1,2,8]
+3. [1,2,[4,4]]
+4. [1,2,[4],[4]]
+
+Q38.
+medium
+The pop() method returns the item present at the given index (10).This item is also removed from the list.
+https://www.programiz.com/python-programming/methods/list/pop
+What will the code return?
+<pre>
+li = [5,10,15]
+print(li.pop(1))
+</pre>
+
+1. [5,15]
+2. 10  ***
+3. [5,10]
+4. 1
+
+Q39.
+medium
+That is a tuple, not a list!
+https://www.tutorialspoint.com/python/python_tuples.htm
+What will the code return?
+<pre>
+li = (1,2,3,4)
+print (li[1:2])
+</pre>
+
+1. (1,2)
+2. 2
+3. (2,) *** 
+4. (2,3)
+
+Q40.
+medium
+sum(di.keys())-sum(di.values()) = 6 - 35 = -29
+https://www.programiz.com/python-programming/dictionary
+What will the code return?
+<pre>
+di = {1:5, 2:20, 3:10}
+print(sum(di.keys())-sum(di.values()))
+</pre>
+
+1. -29 ***
+2. -32
+3.  29 
+4.  32
