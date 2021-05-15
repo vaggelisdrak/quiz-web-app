@@ -1,0 +1,73 @@
+{% extends 'base.html'%}
+{%block title%} Your profile {%endblock%}
+{%block content%}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <style>
+        rect {
+            fill:transparent;
+        }
+    </style>
+    <div class="main-block">
+        <br>
+        <h3 class="prev_games">Previous games ({{games}})</h3>
+        <!--<h4>-{{first_name}} {{last_name}} || {{email}}</h4>-->
+        <table  id="insidetable" class="tableSection">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th id='email_th'>Email</th>
+                    <th>Level</th>
+                    <th>Datetime</th>
+                    <th id="score_th">Score</th>
+                    <th id="time_th">Time</th>
+                </tr>
+            </thead>
+            <tbody>
+            {%for i in player%}
+                <tr>
+                    <td>{{i[0]}} </td>
+                    <td>{{i[1]}} </td>
+                    <td>{{i[2]}} </td>
+                    <td>{{i[4]}} </td>
+                    <td>{{i[3]}}</td>
+                    <td>{{i[5]}}</td>
+                </tr>
+            {%endfor%}
+            </tbody>
+        </table>
+    </div>
+    <div id="carouselExampleControlsNoTouching" class="carousel slide" data-bs-ride="carousel" data-bs-touch="false" data-bs-interval="false"><!--data-bs-interval="10000"-->
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <div id="top_x_div1" class="animated-chart animated-chart-start"></div>
+            </div>
+        </div>
+        <button onclick="myFunction();" class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControlsNoTouching" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button onclick="myFunction();" class="carousel-control-next" type="button" data-bs-target="#carouselExampleControlsNoTouching" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+    <div class="arrow">
+        <form>
+            <a href="/start"><span></span></a>
+            <a href="/start"><span></span></a>
+            <a href="/start"><span></span></a>
+        </form>
+    </div>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript"
+        {% if last_level=="easy"%}
+            src="../static/easy.js"
+        {% elif last_level=="medium"%}
+            src="../static/medium.js"
+        {% else %}
+            src="../static/hard.js"
+        {% endif %}>
+    </script>
+    <script type="text/javascript" src="../static/graphs.js"></script>
+{%endblock%}
+
