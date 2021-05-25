@@ -3,9 +3,48 @@
 {%block content%}
     <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <style>
+        @media screen and (min-width: 1700px){
+            body{
+                overflow-y: hidden;
+            }
+        }
+        @media screen and (max-width: 1700px){
+            body{
+                overflow-x: hidden;
+            }
+            #piechart{
+                margin-top: 30px;
+                position: relative;
+                bottom: 100px;
+                left: 150px;
+            }
+            .stats{
+                float: left;
+                width: 900px;
+                /*background: linear-gradient(to left,#000428 ,#0d7b9c);*/
+                margin-top: 80px;
+                margin-left: 270px;
+            }
+            #perc{
+                position: absolute;
+                font-size: 70px;
+                border-radius: 30px;
+                color: white;
+                box-shadow: 1px 1px 20px 1px rgb(2, 154, 255);
+                border: 2px #09b4b9 solid;
+                text-decoration: none;
+                top: 760px;
+                right: 670px;
+                margin-top: 20px;
+                padding: 20px;
+                cursor: pointer;
+            }
+        }
+    </style>
     <div class="stats">
         <div class="div">
-            <h1 class="results">Level:</h1>
+            <h1 class="results">Level: </h1>
             <h1
             {% if level=="easy" %}
                 id="leveleasy"
@@ -17,16 +56,16 @@
             >{{level}}</h1>
         </div>
         <div class="div">
-            <h1 class="results">Score:</h1>
+            <h1 class="results">Score: </h1>
             <h1 id="score" class="values">{{score}} / 5</h1>
         </div>
         <div class="div">
-            <h1 class="results" class="level">Time:</h1>
+            <h1 class="results" class="level">Time: </h1>
             <h1 class="values" class="timetag"><label id="minutes" class="timetag"></label>:<label id="seconds"class="timetag" ></label></h1>
         </div>
     </div>
     <div id="piechart" style="width: 900px; height: 500px;"></div>
-    <a href="/login" id="perc">Play again</a>
+    <a href="/login" id="perc">Play again &#187;</a>
     <script type="text/javascript" src="../static/converttime.js"></script>
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <script>

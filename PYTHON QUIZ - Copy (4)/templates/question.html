@@ -5,12 +5,34 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <style>
+        @media screen and (max-width: 1700px){
+            .container{
+                width: 400px;
+            }
+            h5{
+                font-size: 20px;
+            }
+            button{
+                margin-top: 10px;
+                width: 400px;
+                font-size: 30px;
+            }
+            .wrapper1{
+                width: 600px;
+            }
+            .popup .content{
+                width: 600px;
+                margin-left: 300px;
+                margin-right: 50px;
+            }
+        }
+    </style>
     <title>Questions</title>
 </head>
 <body>
     <section>
         <div class="box">
-            <br>
             <h1>Question {{ session["count"] }} / 5 </h1>
             <!--<h1 class="level">00:00</h1>-->
             <h1 id="timetag" class="level"><label id="minutes"></label>:<label id="seconds"></label></h1>

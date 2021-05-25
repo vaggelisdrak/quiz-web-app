@@ -2,16 +2,57 @@
 {%block title%} Login {%endblock%}
 {%block content%}
     <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <style>
+      @media screen and (max-width: 1700px){
+        html,body{
+          overflow-x: hidden;
+          overflow-y: auto;
+        }
+        .box{
+          margin-top: 1px;
+          margin-bottom: 300px;
+          height: 510px;
+        }
+        .btn{
+            background-color: rgb(0, 62, 104);
+            position: relative;
+            display: inline-block;
+            color:white;
+            text-decoration: none;
+            padding: 10px;
+            padding-right: 10px;
+            padding-left: 10px;
+            border:white 1px solid;
+            border-radius: 30% 30% 30% 30%;
+            margin-top: 0px;
+            margin-left: 140px;
+            font-size: 20px;
+            bottom: 50px;
+        }
+
+        .btn:hover{
+            color:#51C4D3;
+            box-shadow: 5px 5px 40px 5px rgb(2, 154, 255);
+        }
+
+      }
+    </style>
+    {% if error %}
+        <div class="alert alert-warning alert-dismissible fade show" role="alert">
+          <strong>ERROR!</strong>{{error}}
+          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+      {% endif %}
     <div class="box">
       <h3 style="margin-left: 30px;">
         <strong>Login</strong>
       </h3>
       <form class='my-form' action="/form" method="POST">
         <div class="mb-3">
-          <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Name" name="first_name" value="{{first_name}}" required>
+          <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Username" name="first_name" value="{{first_name}}" required style="width: 350px;">
         </div>
         <div class="mb-3">
-          <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Email" name="email" value="{{email}}" required>
+          <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Email" name="email" value="{{email}}" required style="width: 350px;">
         </div>
         <br>
         <!--<h5 id="demo"></h5>-->

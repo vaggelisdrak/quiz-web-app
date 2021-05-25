@@ -1,8 +1,5 @@
 body{
     margin:0px;
-    /*background-image: url(../images/mixed-bg.jpg);
-    background-color: rgba(0, 0, 0, 0.4);*/
-    /*background: linear-gradient(#010633 ,#185a94),url("../images/mixed-bg.jpg");*/
     background: linear-gradient(to right,#010633 ,rgb(1, 5, 46),#185a94),url("../images/mixed-bg.jpg");
     background-blend-mode:multiply;
     background-size: cover;
@@ -17,13 +14,17 @@ nav{
     z-index:200;
 }
 
+/* login 
+-------------------------------------------------------*/
+
 .box{
     /*background-color: rgb(2, 3, 32);*/
     /*background-color: transparent;*/
     background: linear-gradient(black,#000428 ,#0b6885);
     margin-left: 10%;
     margin-top: 60px;
-    width: 25%;
+    /*width: 25%;*/
+    width: 475px;
     height: 600px;
     position: fixed;
     top: 100px;
@@ -41,6 +42,8 @@ nav{
     margin: 55px;
     width: 75%;
 }
+
+
 /* TIMELINE
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 .timeline{
@@ -82,6 +85,7 @@ nav{
     padding: 15px;
     background: #2173aa;
     border: 2px #09b4b9 solid;
+    border-radius: 10px;
   }
   
   .timeline ul li div::before {
@@ -121,7 +125,7 @@ nav{
   }
   
   
-  /* EFFECTS
+  /* TIMELINE EFFECTS
   –––––––––––––––––––––––––––––––––––––––––––––––––– */
 
   .timeline ul li::after {
@@ -242,14 +246,22 @@ nav{
     }
   }  
 
+/* TEXT
+-------------------------------------------------------*/
+
 h1{
     padding-top: 40px;
-    padding-left: 90px;
+    padding-left: 120px;
     font-size: 150px;
     font-family: Arial, Helvetica, sans-serif;
     color: #00CCCC;
     /*text-shadow: 1px 1px 2px white, 0 0 25px rgb(192, 197, 240), 0 0 5px rgb(90, 142, 202);*/
     position: relative;
+}
+
+h2{
+  font-size: 50px;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 h3{
@@ -272,16 +284,27 @@ h4{
     position: relative;
 }
 
+h5{
+  color: white;
+  display: inline-block;
+  padding-left: 10px;
+}
+
 h1 span {
     display: block;
   }
 
+/* TYPING 
+-------------------------------------------------------*/
 #demo{
     display: inline;
     padding-bottom: 20px;
     font-family: sans-serif;
     color: white;
 }
+
+/* PYTHON QUIZ TITLE
+-------------------------------------------------------*/
 
 #span1{
     position: relative;
@@ -306,6 +329,9 @@ h1 span {
     0% {bottom: -800px;}
     100% {bottom: -20px;}
 }
+
+/* PLAY BUTTON 
+-------------------------------------------------------*/
 
 .player {
     margin-left: 5px;
@@ -368,11 +394,13 @@ h1 span {
     margin-left: 135px;
 }
 
-
 .btn:hover{
     color:#51C4D3;
     box-shadow: 5px 5px 40px 5px rgb(2, 154, 255);
 }
+
+/* FORM OPTIONS
+-------------------------------------------------------*/
 
 #easy{
     color: chartreuse;
@@ -388,6 +416,10 @@ h1 span {
     color: rgb(224, 15, 15);
     font-size: 20px;
 }
+
+/* TYPINF EFFECT 
+-------------------------------------------------------*/
+
 .typing-demo {
     width: 43ch;
     animation: typing 3s steps(43), blink .5s step-end infinite alternate;
@@ -425,6 +457,9 @@ h1 span {
     opacity: 0;
     cursor: pointer;
 }
+
+/* RADIO BUTTONS
+-------------------------------------------------------*/
   
   /* Create a custom radio button */
 .checkmark {
@@ -478,21 +513,66 @@ ul{
     color: white;
 }
 
+/* PREVIOUS GAMES TABLE 
+-------------------------------------------------------*/
+
 table, th, td {
-    color: white;
+    color: #43B9EC;
     margin-left: 80px;
     margin-top: 30px;
     margin-bottom: 15px;
     padding: 10px;
-    border: 1px solid rgb(255, 255, 255);
+    border: 1px solid #09b4b9;
     /*box-shadow: 0px -2px 2px white, 0 0 25px rgb(192, 197, 240), 0 0 5px rgb(90, 142, 202);*/
 }
 
 table{
-    position: absolute;
+    position: fixed;
     width: 700px;
-    box-shadow: 5px 5px 40px 5px rgb(2, 154, 255);
+    box-shadow: 1px 1px 20px 1px rgb(2, 154, 255);
 }
+
+table.tableSection {
+  display: table;
+}
+table.tableSection thead, table.tableSection tbody {
+  z-index: -100;
+  float: left;
+  width: 100%;
+}
+table.tableSection tbody {
+  overflow: auto;
+  max-height: 250px;
+}
+table.tableSection tr {
+  width: 100%;
+  display: table;
+  text-align: center;
+}
+table.tableSection th, table.tableSection td {
+  width: 17%;
+}
+
+#email_th{
+width: 15%;
+}
+
+#score_th{
+width: 12%;
+}
+
+#time_th{
+width: 17%;
+}
+
+/* SCROLLBARS
+-------------------------------------------------------*/
+
+::-webkit-scrollbar {background: #00255C; }
+::-webkit-scrollbar-thumb { background-color: #09b4b9; -webkit-border-radius: 1ex; border-radius: 1ex;}
+
+/* VERICAL ARROWS
+-------------------------------------------------------*/
 
 .arrow{
     position: fixed;
@@ -538,14 +618,17 @@ table{
     filter: drop-shadow(1px 1px 1px rgb(66, 249, 255));
 }
 
+/* GRAPHS
+-------------------------------------------------------*/
+
 #top_x_div1{
     width: 700px;
     margin-left: 80px;
     margin-top: 70px;
     margin-bottom: 50px;
-    border: 1px solid rgb(255, 255, 255);
+    border: 1px solid #09b4b9;
     /*box-shadow: 1px 1px 2px white, 0 0 25px rgb(230, 232, 250), 0 0 5px rgb(159, 195, 236);*/
-    box-shadow: 5px 5px 40px 5px rgb(2, 154, 255);
+    box-shadow: 1px 1px 20px 1px rgb(2, 154, 255);
 }
 
 #top_x_div2{
@@ -553,9 +636,9 @@ table{
     margin-left: 80px;
     margin-top: 70px;
     margin-bottom: 50px;
-    border: 1px solid rgb(255, 255, 255);
+    border: 1px solid #09b4b9;
     /*box-shadow: 1px 1px 2px white, 0 0 25px rgb(230, 232, 250), 0 0 5px rgb(159, 195, 236);*/
-    box-shadow: 5px 5px 40px 5px rgb(2, 154, 255);
+    box-shadow: 1px 1px 20px 1px rgb(2, 154, 255);
 }
 
 #top_x_div3{
@@ -563,82 +646,134 @@ table{
     margin-left: 80px;
     margin-top: 70px;
     margin-bottom: 50px;
-    border: 1px solid rgb(255, 255, 255);
+    border: 1px solid #09b4b9;
     /*box-shadow: 1px 1px 2px white, 0 0 25px rgb(230, 232, 250), 0 0 5px rgb(159, 195, 236);*/
-    box-shadow: 5px 5px 40px 5px rgb(2, 154, 255);
+    box-shadow: 1px 1px 20px 1px rgb(2, 154, 255);
 }
 
-.questions{
-    margin-top: 50px;
-    padding-top: 15px;
-    color: white;
-    padding-left: 30px;
+.animated-chart g:nth-of-type(3) {
+  transition: 1s;
+  transform: scaleY(1);
+  transform-origin: 50px 300px;
 }
 
-.answer{
-    padding-left: 30px;
+.animated-chart.animated-chart-start g:nth-of-type(3) {
+  transform: scaleY(0);
 }
 
-h5{
-    color: white;
-    display: inline-block;
-    padding-left: 10px;
+.carousel {
+  bottom:0;
+  position:fixed;
+  width: 860px;
 }
 
-.prev_games{
+.prev_games{ /*TITLE ABOVE TABLE*/
     padding-left: 180px;
     padding-top: 20px;
 }
 
-table.tableSection {
-    display: table;
-}
-table.tableSection thead, table.tableSection tbody {
-    z-index: -100;
-    float: left;
-    width: 100%;
-}
-table.tableSection tbody {
-    overflow: auto;
-    max-height: 250px;
-}
-table.tableSection tr {
-    width: 100%;
-    display: table;
-    text-align: center;
-}
-table.tableSection th, table.tableSection td {
-    width: 17%;
+/* LEADERBOARD
+-------------------------------------------------------*/
+
+#pd{
+  margin-top: 30px;
+  max-height: 725px;
+  width: 650px;
+  margin-left: 1110px;
+  border: 1px #09b4b9 solid;
+  box-shadow: 1px 1px 20px 1px rgb(2, 154, 255);
+  overflow-y:  auto;
+  overflow-x: hidden;
 }
 
-#email_th{
-    width: 25%;
+.podium {
+  margin-top: 100px;
+  margin-bottom: 10px;
+  /*margin-left: 1120px;*/
+  display: inline-block;
+  text-align: center;
+  background-color: transparent;
+  max-height: 600px;
+  border: 2px white;
+  text-align: center;
+}
+.second {
+  transition: ease-in-out 0.1s;
+  margin-left: 10px;
+  margin-right: 5px;
+  margin-top: 70px;
+  float: left;
+  height: 130px;
+  width: 200px;
+  color: rgb(87, 87, 87);
+  text-shadow: 1px black;
+  background-color: #09b4b9;
+  box-shadow: 1px 1px 20px 1px rgb(2, 154, 255);
+}
+.first {
+  transition: ease-in-out 0.1s;
+  float: left;
+  height: 200px;
+  width: 200px;
+  background-color: #09b4b9;
+  color: rgb(219, 199, 15);
+  text-shadow: 1px black;
+  box-shadow: 1px 1px 20px 1px rgb(2, 154, 255);
+}
+.third {
+  transition: ease-in-out 0.1s;
+  margin-left: 5px;
+  margin-top: 100px;
+  float: right;
+  width: 200px;
+  height: 100px;
+  color: rgb(161, 91, 25);
+  text-shadow: 1px black;
+  background-color: #09b4b9;
+  box-shadow: 1px 1px 20px 1px rgb(2, 154, 255);
 }
 
-#score_th{
-    width: 10%;
+.first:hover{
+	transform: translate(0px,-20px)
 }
 
-#time_th{
-    width: 20%;
+.second:hover{
+	transform: translate(-20px,20px)
 }
 
-.animated-chart g:nth-of-type(3) {
-    transition: 1s;
-    transform: scaleY(1);
-    transform-origin: 50px 300px;
+.third:hover{
+	transform: translate(20px,20px)
 }
 
-.animated-chart.animated-chart-start g:nth-of-type(3) {
-    transform: scaleY(0);
+.leaderboard{
+  /*display: inline-block;*/
+  position: absolute;
+  float: right;
+  margin-left: 990px;
+  /*margin-right: 190px;*/
+  margin-top: 30px;
+  margin-bottom: 70px;
+  text-align: center;
+  background-color: transparent;
+  color: white;
 }
 
-.carousel {
-    bottom:0;
-    position:fixed;
-    width: 860px;
+.pod1{
+  margin-top: 20px;
+  color: #09b4b9;
+  font-size: 30px;
 }
 
+.pod2{
+  color: #09b4b9;
+  margin-bottom: 250px;
+  font-size: 30px;
+}
+
+#leader{
+  font-size: 70px;
+}
+/*
 #feedback {
     font-size: 2rem;
 }
@@ -647,7 +782,10 @@ table.tableSection th, table.tableSection td {
 }
 .green {
     color:lightseagreen;
-}
+}*/
+
+/* RESULTS
+-------------------------------------------------------*/
 
 .checking{
     margin-top: 10px;
@@ -683,7 +821,7 @@ table.tableSection th, table.tableSection td {
     width: 400px;
     border-radius: 30px;
     margin-bottom: 30px;
-    padding-right: 70px;
+    padding-right: 75px;
     box-shadow: 1px 1px 20px 1px rgb(2, 154, 255);
 }
 
@@ -726,33 +864,33 @@ table.tableSection th, table.tableSection td {
 }
 
 #perc{
-    position: absolute;
-    font-size: 70px;
-    border-radius: 30px;
-    color: white;
-    box-shadow: 1px 1px 20px 1px rgb(2, 154, 255);
-    border: 2px #09b4b9 solid;
-    text-decoration: none;
-    top: 600px;
-    margin-left: 115px;
-    margin-top: 20px;
-    padding: 12px;
-    cursor: pointer;
+  position: absolute;
+  font-size: 70px;
+  border-radius: 30px;
+  color: white;
+  box-shadow: 1px 1px 20px 1px rgb(2, 154, 255);
+  border: 2px #09b4b9 solid;
+  text-decoration: none;
+  top: 600px;
+  margin-left: 115px;
+  margin-top: 20px;
+  padding: 12px;
+  cursor: pointer;
 }
 
 #perc:hover{
-    animation-name: myanimation;
-    animation-duration: 1s;
-    animation-fill-mode: forwards;
+  animation-name: myanimation;
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
 }
 @keyframes myanimation{
-    0%{background-color: transparent;color: white;}
-    100%{background-color: #09b4b9;color: black;}
+  0%{background-color: transparent;color: white;}
+  100%{background-color: #09b4b9;color: black;}
 }
 
 
 #piechart{
-    position: relative;
-    float: right;
-    bottom: 630px;
+  position: relative;
+  float: right;
+  bottom: 630px;
 }

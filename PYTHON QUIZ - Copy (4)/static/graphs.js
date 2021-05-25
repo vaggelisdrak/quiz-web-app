@@ -1,4 +1,16 @@
-let count = 1;
+let count = 0;
+if (document.getElementById('top_x_div2')){
+    count=2;
+    //console.log(count)
+}
+if (document.getElementById('top_x_div3')){
+    count=0;
+    //console.log(count)
+}
+if (document.getElementById('top_x_div1')){
+    count=1;
+    //console.log(count)
+}
 
 function myFunction(){
     count++;

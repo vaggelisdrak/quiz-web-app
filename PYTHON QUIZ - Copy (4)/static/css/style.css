@@ -36,6 +36,9 @@ section{
     box-shadow: 5px 5px 15px 5px #000000;
 }
 
+::-webkit-scrollbar {background: #00255C; }
+::-webkit-scrollbar-thumb { background-color: #09b4b9; -webkit-border-radius: 1ex; border-radius: 1ex;}
+
 h1{
     float: left;
     color: #10d0d6;
