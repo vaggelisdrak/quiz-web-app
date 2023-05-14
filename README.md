@@ -1,1 +1,2 @@
-# ergasia https://python---quiz.herokuapp.com/
+# Python quiz game with analytics and leaderboard
+https://python---quiz.herokuapp.com/
