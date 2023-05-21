@@ -1,0 +1,138 @@
+{% extends 'base.html'%}
+{%block title%} Results {%endblock%}
+{%block content%}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <style>
+        @media screen and (min-width: 1700px){
+            body{
+                overflow-y: hidden;
+            }
+        }
+        @media screen and (max-width: 1700px){
+            body{
+                overflow-x: hidden;
+            }
+            #piechart{
+                margin-top: 30px;
+                position: relative;
+                bottom: 100px;
+                left: 150px;
+            }
+            .stats{
+                float: left;
+                width: 900px;
+                /*background: linear-gradient(to left,#000428 ,#0d7b9c);*/
+                margin-top: 80px;
+                margin-left: 270px;
+            }
+            #perc{
+                position: absolute;
+                font-size: 70px;
+                border-radius: 30px;
+                color: white;
+                box-shadow: 1px 1px 20px 1px rgb(2, 154, 255);
+                border: 2px #09b4b9 solid;
+                text-decoration: none;
+                top: 760px;
+                right: 670px;
+                margin-top: 20px;
+                padding: 20px;
+                cursor: pointer;
+            }
+        }
+    </style>
+    <div class="stats">
+        <div class="div">
+            <h1 class="results">Level: </h1>
+            <h1
+            {% if level=="easy" %}
+                id="leveleasy"
+            {% elif level=="medium" %}
+                id="levelmedium"
+            {% else %}
+                id="levelhard"
+            {% endif %}
+            >{{level}}</h1>
+        </div>
+        <div class="div">
+            <h1 class="results">Score: </h1>
+            <h1 id="score" class="values">{{score}} / 5</h1>
+        </div>
+        <div class="div">
+            <h1 class="results" class="level">Time: </h1>
+            <h1 class="values" class="timetag"><label id="minutes" class="timetag"></label>:<label id="seconds"class="timetag" ></label></h1>
+        </div>
+    </div>
+    <div id="piechart" style="width: 900px; height: 500px;"></div>
+    <a href="/login" id="perc">Play again &#187;</a>
+    <script type="text/javascript" src="../static/converttime.js"></script>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script>
+        var score = document.getElementById("score").innerHTML;
+        console.log(score[0]);
+        var pos = ((score[0]) /5);
+        console.log(pos);
+        google.charts.load('current', {'packages':['corechart']});
+        google.charts.setOnLoadCallback(drawChart);
+
+        function drawChart() {
+
+            var data = google.visualization.arrayToDataTable([
+            ['Task', 'Hours per Day'],
+            ['Correct',    0],
+            ['Wrong',      0]
+            ]);
+
+            var options = {
+            pieSliceTextStyle: {
+                textStyle: {fontSize: 25}
+            },
+            is3D: true,
+            legend:'bottom',
+            legend: {
+                textStyle: { color: 'white' }
+            },
+            chartArea: {width: 600, height: 600},
+            backgroundColor: {fill:'transparent'},
+            /*pieSliceText: 'none',*/
+            colors: ['#09b4b9','#002E5B'],
+            pieHole: 0.6,
+            animation: {
+                duration: 1000,
+                easing: 'in',
+                startup: true
+            }
+            };
+
+            var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+
+            chart.draw(data, options);
+            // initial value
+            var percent = 0;
+            // start the animation loop
+            var handler = setInterval(function(){
+                // values increment
+                percent += 1;
+                // apply new values
+                data.setValue(0, 1, percent);
+                data.setValue(1, 1, 100 - percent);
+                // update the pie
+                chart.draw(data, options);
+                // check if we have reached the desired value
+                if (percent >= (pos*100))
+                    // stop the loop
+                    clearInterval(handler);
+            }, 30);
+        }
+    </script>
+    <script>
+        var time = localStorage.getItem('time');
+        console.log(time);
+        $.ajax({
+            type : 'POST',
+            url : "{{url_for('results')}}",
+            data : {'data': time}
+        });
+    </script>
+{%endblock%}

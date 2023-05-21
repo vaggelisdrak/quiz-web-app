@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <style>
+        @media screen and (max-width: 1700px){
+            .container{
+                width: 400px;
+            }
+            h5{
+                font-size: 20px;
+            }
+            button{
+                margin-top: 10px;
+                width: 400px;
+                font-size: 30px;
+            }
+            .wrapper1{
+                width: 600px;
+            }
+            .popup .content{
+                width: 600px;
+                margin-left: 300px;
+                margin-right: 50px;
+            }
+        }
+    </style>
+    <title>Questions</title>
+</head>
+<body>
+    <section>
+        <div class="box">
+            <h1>Question {{ session["count"] }} / 5 </h1>
+            <!--<h1 class="level">00:00</h1>-->
+            <h1 id="timetag" class="level"><label id="minutes"></label>:<label id="seconds"></label></h1>
+            <br>
+            {% if disabled %}
+            <form action=/questions/{{next_question}}>
+            <script type="text/javascript" src="../static/converttime.js"></script>
+            {% else %}
+            {% if session["count"] == 1 %}
+                <script>localStorage.clear();</script>
+            {% endif %}
+            <form action=/questions/{{id}}>
+                <script type="text/javascript" src="../static/timer.js"></script>
+            {% endif %}
+                
+            <div class="main">
+                <div class="wrapper1">
+                    <div {%if not disabled%}class="container1"{%endif%} id="card1">
+                        <div class="story" id="story1">
+                            <div class="info">
+                                <h3 class="questions"><pre>{{question[2]}}</pre></h3>
+                                {% if disabled %}
+                                    <div class="popup" id="popup-1">
+                                        <div class="overlay"></div>
+                                        <div class="content">
+                                        <div class="close-btn" onclick="togglePopup()">×</div>
+                                        <h3 style="color: rgb(255, 255, 255); font-size: 20px; padding-bottom: 40px; text-align: center;">Question {{ session["count"] }} Explanation</h3>
+                                        <p style="color: rgb(255, 255, 255); font-size: 15px; padding-bottom: 20px;">{{question[8]}}</p>
+                                        <br>
+                                        <a style="color: rgb(255, 255, 255); font-size: 15px;" href="{{question[9]}}" target="_blank">Recommended Course</a>
+                                        </div>
+                                    </div>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="ans">
+                <ol class="bullets">
+                    <li class="answer">
+                        <label class="container"
+                            {% if reply == "1" and correct == "1" %} 
+                                id="correct" 
+                            {% elif reply == "1" and correct != "1" %}
+                                id="incorrect"
+                            {% elif correct == "1" %}
+                                id="correct"
+                            {% endif %} >
+                            <input type="radio" name="answer" required value="1" {{disabled}} required><h5>{{ question[3] }}</h5>
+                            <span class="checkmark"></span>
+                        </label>
+                    </li>
+                    <li class="answer">
+                        <label class="container"
+                            {% if reply == "2" and correct == "2" %} 
+                                id="correct" 
+                            {% elif reply == "2" and correct != "2" %}
+                                id="incorrect"
+                            {% elif correct == "2" %}
+                                id="correct"
+                            {% endif %} >
+                            <input type="radio" name="answer" required value="2" {{disabled}} required><h5>{{ question[4] }}</h5>
+                            <span class="checkmark"></span>
+                        </label>
+                    </li>
+                    <li class="answer">
+                        <label class="container"
+                            {% if reply == "3" and correct == "3" %} 
+                                id="correct" 
+                            {% elif reply == "3" and correct != "3" %}
+                                id="incorrect"
+                            {% elif correct == "3" %}
+                                id="correct"
+                            {% endif %} >
+                            <input type="radio" name="answer" required value="3" {{disabled}} required><h5>{{ question[5] }}</h5>
+                            <span class="checkmark"></span>
+                        </label>
+                    </li>
+                    <li class="answer">
+                        <label class="container"
+                            {% if reply == "4" and correct == "4" %} 
+                                id="correct" 
+                            {% elif reply == "4" and correct != "4" %}
+                                id="incorrect"
+                            {% elif correct == "4" %}
+                                id="correct"
+                            {% endif %} >
+                            <input type="radio" name="answer" required value="4" {{disabled}} required><h5>{{ question[6] }}</h5>
+                            <span class="checkmark"></span>
+                        </label>
+                    </li>
+                    <button class="btn"
+                     {%if not disabled%}
+                        onclick="savedata()"
+                     {%endif%} >{{button}}</button>
+                </ol>  
+                </div>
+            </div>
+            </form>
+        </div>
+    </section>
+</body>
+<script>
+    function togglePopup(){
+        document.getElementById("popup-1").classList.toggle("active");
+    }
+    window.onload = togglePopup;
+    function savedata(){
+        var min = document.getElementById("minutes").innerHTML;
+        var sec = document.getElementById("seconds").innerHTML;
+        console.log(min);
+        time = (+min[0])*10*60 + (+min[1])*60 + (+sec[0])*10 + (+sec[1]);
+        localStorage.setItem("time",time);
+    }
+</script>
+</html>
+    
+
